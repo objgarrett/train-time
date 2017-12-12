@@ -1,58 +1,52 @@
 // Initialize Firebase
-var config = {
-	apiKey: "AIzaSyCZvH1iZ2EVB-HiRwJ53IwppdlAQaDFes8",
-	authDomain: "train-time-6e777.firebaseapp.com",
-	databaseURL: "https://train-time-6e777.firebaseio.com",
-	projectId: "train-time-6e777",
-	storageBucket: "",
-	messagingSenderId: "129541739020"
-	};
-	firebase.initializeApp(config);
+  var config = {
+    apiKey: "AIzaSyA6ZZ04zoIZP3cPwUIeb2YqCHxl76-P2tQ",
+    authDomain: "classdemo-5e8b0.firebaseapp.com",
+    databaseURL: "https://classdemo-5e8b0.firebaseio.com",
+    projectId: "classdemo-5e8b0",
+    storageBucket: "classdemo-5e8b0.appspot.com",
+    messagingSenderId: "568530595563"
+  };
+  firebase.initializeApp(config);
 
-// Assign the reference to the database to a variable named 'database'
-//var database = ...
+//reference to firebase
 var database = firebase.database();
 
-// Whenever a user clicks the submit-bid button
+//on-click submit train button
 $("#submit-train").on("click", function(event) {
   // Prevent form from submitting
   event.preventDefault();
 
   // Get the input values
-  var trainName = $("#train-name").val().trim();//get the new price
+  var trainName = $("#train-name").val().trim();
   console.log(trainName);
 
-  var trainDestination = $("#train-destination").val().trim();//get the new price
+  var trainDestination = $("#train-destination").val().trim();
   console.log(trainDestination);
 
-  var trainTime = $("#train-time").val().trim();//get the new price
+  var trainTime = $("#train-time").val().trim();
   console.log(trainTime);
 
-  var trainFrequency = $("#train-frequency").val().trim();//get the new price
+  var trainFrequency = $("#train-frequency").val().trim();
   console.log(trainFrequency);
 
+//pushes input info to firebase
   database.ref().push({
       trainName: trainName,
       trainDestination: trainDestination,
       trainTime: trainTime,
       trainFrequency: trainFrequency,
       dateAdded: firebase.database.ServerValue.TIMESTAMP
-
   });
-
 });
 
 database.ref().on("child_added", function(childSnapshot){
   var trainTr =$("<tr>");
   //var monthsWorked = monthDiff(childSnapshot.val().trainTime);
-  var monthsBilled;
+  //var monthsBilled;
   trainTr.html("<td>" + childSnapshot.val().trainName + "</td>" +
       "<td>" + childSnapshot.val().trainDestination + "</td>" +
-      "<td>" + childSnapshot.val().trainTime + "</td>" +
-      "<td>" + mome + "</td>" +
-      "<td>" + childSnapshot.val().trainFrequency + "</td>" +
-      "<td>" + "months billed" + "</td>" 
-    );
-  $("#train-entry").append(trainTr);
-
+      "<td>" + childSnapshot.val().trainFrequency + "</td>" + "<td>");
+  $("#train-info").append(trainTr);
+//+ "Next Time" + "</td>" + "<td>" + "Minutes Away" + "</td>"
 });	
