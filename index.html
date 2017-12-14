@@ -9,23 +9,19 @@
 
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <!-- Bootstrap CDN-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
     <!-- Firebase Reference -->
 	<script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
-	
+	 <!-- Moment.js -->
+  	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>	
+    <!-- Bootstrap CDN-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
 	<!--CSS Stylesheet-->
     <link rel="stylesheet" href="./assets/css/style.css">
 	<!--Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto|Spectral+SC" rel="stylesheet">
-	 <!-- Moment.js -->
-  	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
   </head>
-
 
 <body>
 
@@ -36,7 +32,7 @@
         	<h1 class="text-left" id="header">Anytime is Train Time</h1>
         	<h3 class="text-left">Find the train time below or add your own.</h3>
       	</div>
-
+		<!--Train Time Schedule Table-->
       	<div class="row">
         	<div class="col-lg-12">
           		<div class="panel">
@@ -59,34 +55,37 @@
           		</div>
         	</div>
     	</div>
-	<div class="row">
-        <div class="col-lg-12">
-          	<div class="panel">
-          		<div class="panel-heading">Add Train</div>
-            	<div class="panel-body">
-					<form>
-		                <div class="form-group">
-		                  <label for="train-name">Train Name</label>
-		                  <input class="form-control" id="train-name" type="text">
-		                </div>
-						<div class="form-group">
-		                  <label for="train-destination">Destination</label>
-		                  <input class="form-control" id="train-destination" type="text">
-		                </div>
-		                <div class="form-group">
-		                  <label for="train-time">First Train Time (HH:mm - military time)</label>
-		                  <input class="form-control" id="train-time" type="text">
-		                </div>
-		                <div class="form-group">
-		                  <label for="train-rate">Frequency (min)</label>
-		                  <input class="form-control" id="train-frequency" type="number">
-		                </div>
-		                <button class="btn btn-primary" id="submit-train" type="submit">Submit</button>
-	              	</form>
+    <!--New Train Input -->	
+		<div class="row">
+        	<div class="col-lg-12">
+          		<div class="panel">
+          			<div class="panel-heading">Add Train</div>
+            		<div class="panel-body">
+						<form>
+		                	<div class="form-group">
+		                  		<label for="train-name">Train Name</label>
+		                  		<input class="form-control" id="train-name" type="text">
+		                	</div>
+							<div class="form-group">
+		                 		<label for="train-destination">Destination</label>
+		                  		<input class="form-control" id="train-destination" type="text">
+		                	</div>
+		                	<div class="form-group">
+		                  		<label for="train-time">First Train Time (HH:mm - military time)</label>
+		                  		<input class="form-control" id="train-time" type="text">
+		                	</div>
+		                	<div class="form-group">
+		                  		<label for="train-rate">Frequency (min)</label>
+		                  		<input class="form-control" id="train-frequency" type="number">
+		                	</div>
+		                	<button class="btn btn-primary" id="submit-train" type="submit">Submit</button>
+	              		</form>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</div>	
+<!--Link to Javascript file-->	
 <script src="./assets/javascript.js"></script>	
 </body>
 </html>
