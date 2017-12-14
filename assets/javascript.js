@@ -41,12 +41,12 @@ $("#submit-train").on("click", function(event) {
 });
 
 database.ref().on("child_added", function(childSnapshot){
-  var trainTr =$("<tr>");
-  //var monthsWorked = monthDiff(childSnapshot.val().trainTime);
-  //var monthsBilled;
+  var trainTr = $("<tr>");
+  var nextArrival = moment(childSnapshot.trainTime).toNow(moment.duration(childSnapshot.timeFrequency, "minutes"));
+  var minutesAway = moment(nextArrival).toNow();
+
   trainTr.html("<td>" + childSnapshot.val().trainName + "</td>" +
       "<td>" + childSnapshot.val().trainDestination + "</td>" +
-      "<td>" + childSnapshot.val().trainFrequency + "</td>" + "<td>");
+      "<td>" + childSnapshot.val().trainFrequency + "</td>" + "<td>" + nextArrival + "</td>" + "<td>" + moment(minutesAway).format("HH:mm") + "</td>");
   $("#train-info").append(trainTr);
-//+ "Next Time" + "</td>" + "<td>" + "Minutes Away" + "</td>"
 });	
